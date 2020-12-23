@@ -1,0 +1,5 @@
+@import '../../../sharded/component/footer/footer.component';
+
+@mixin component-themes($theme) {
+  @include footer-theme($theme);
+}

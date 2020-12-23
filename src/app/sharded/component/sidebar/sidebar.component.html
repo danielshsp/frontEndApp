@@ -1,0 +1,71 @@
+<mat-nav-list>
+  <div class="card-profile">
+    <div class="header">
+      <h2>Hello</h2>
+      <h4>{{Jwt?.sub}}</h4>
+    </div>
+    <img [src]="imageName" alt="daniel s">
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Customers</h2>
+
+  <div class="middle-menu">
+    <mat-list-item [matMenuTriggerFor]="tevamenu" >
+      <mat-icon>swap_vertical_circle</mat-icon>
+      <a matline>Teva</a>
+    </mat-list-item>
+
+    <mat-menu #tevamenu="matMenu">
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/teva/dashboard" >Dashboard</button>
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/teva/grid">Grid</button>
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/teva/sse">Refresh Data</button>
+    </mat-menu>
+
+    <mat-list-item [matMenuTriggerFor]="eppenmenu">
+      <mat-icon>swap_vertical_circle</mat-icon>
+      <a matline>Eppen</a>
+    </mat-list-item>
+
+    <mat-menu #eppenmenu="matMenu">
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/eppen/dashboard" >Dashboard</button>
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/eppen/grid">Grid</button>
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/eppen/sse">Refresh Data</button>
+    </mat-menu>
+
+    <h2 matSubheader>Management</h2>
+    <mat-list-item [matMenuTriggerFor]="vayumenu">
+      <mat-icon>supervised_user_circle</mat-icon>
+      <a matline>vayusense</a>
+    </mat-list-item>
+
+    <mat-menu #vayumenu="matMenu">
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/dashboard" >Users</button>
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/grid">Administrators</button>
+      <button mat-menu-item routerLinkActive="list-item-active" routerLink="/sse">Add user</button>
+    </mat-menu>
+
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div>
+
+    <h2 matSubheader>Tools</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+      <mat-icon>import_contacts</mat-icon>
+      Contacts
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
+      <mat-icon>contact_phone</mat-icon>
+      Leads
+    </a>
+  </div>
+
+
+</mat-nav-list>
+
+

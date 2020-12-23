@@ -1,0 +1,39 @@
+<div class="stats-cards">
+  <mat-card>
+    <app-teva-unitchart label="Monitored params"></app-teva-unitchart>
+  </mat-card>
+</div>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div  fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+  <mat-card fxFlex="25">
+    <app-teva-cardwidget label="Users" total="12k" percentage="50"></app-teva-cardwidget>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-teva-cardwidget label="Admin" total="5k" percentage="50"></app-teva-cardwidget>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-teva-cardwidget label="Control Params" total="12k" percentage="50"></app-teva-cardwidget>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-teva-cardwidget label="Offline Params" total="12k" percentage="50"></app-teva-cardwidget>
+  </mat-card>
+</div>
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+  <mat-card fxFlex="50">
+      <app-piewidget label="Control params"></app-piewidget>
+  </mat-card>
+  <mat-card fxFlex="50">
+      <app-piewidget label="Offline params"></app-piewidget>
+   </mat-card>
+</div>

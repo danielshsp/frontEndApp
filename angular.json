@@ -31,7 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/app/@theme/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -95,7 +95,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/app/@theme/styles/styles.scss"
             ],
             "scripts": []
           }
@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontEndApp"
+    }
+  },
+  "defaultProject": "frontEndApp",
+  "cli": {
+    "analytics": false
+  }
 }
