@@ -2,6 +2,9 @@
 //@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import './customize/theme';
 @import '~@angular/material/theming';
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeng/resources/themes/md-light-indigo/theme.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
