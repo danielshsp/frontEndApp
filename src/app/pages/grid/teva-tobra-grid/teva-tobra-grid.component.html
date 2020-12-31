@@ -1,4 +1,4 @@
-<div class="card">
+<div  class = "dynamicgrid">
   <p-table #dt [columns]="cols" [value]="stateList" [lazy]="true" (onLazyLoad)="loadPage($event)"
            [paginator]="true" [rows]="settings.rowsPerPage" [totalRecords]="totalRecords" [responsive]="true"
            [sortField]="settings.defaultSort ? settings.defaultSort.field : 'id'"
@@ -6,12 +6,12 @@
            [showCurrentPageReport]="true"
            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
 
-    <ng-template pTemplate="caption" *ngIf="settings.globalFilter">
-      <div class="p-d-flex p-jc-end">
+    <ng-template pTemplate="caption" *ngIf="settings.globalFilter" >
+      <div class="p-d-flex p-jc-end dynamicgrid">
 
       <span class="p-input-icon-left">
-        <i class="pi pi-search" ></i>
-        <input #f type="text" pInputText size="50" (change)="dt.filterGlobal(f.value,'contains')">
+        <i class="pi pi-search" (click)="loadPageByBatchId()"></i>
+        <input placeholder= "BatchId filter..."  [(ngModel)]="batchFilter" type="text" pInputText size="50">
       </span>
 
       </div>
@@ -19,28 +19,41 @@
 
 
     <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns" [pSortableColumn]="col.field" [pSortableColumnDisabled]="col.sortable===false">
-          {{col.header}}
-          <p-sortIcon  *ngIf="col.sortable" [field]="col.field"></p-sortIcon>
-        </th>
+      <div class = "dynamicgrid">
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field" [pSortableColumnDisabled]="col.sortable===false">
+            {{col.header}}
+            <p-sortIcon  *ngIf="col.sortable" [field]="col.field"></p-sortIcon>
+          </th>
 
-      </tr>
-      <tr>
-        <th *ngFor="let col of columns">
-          <input  (input)="lazyLoadFilterData($event, col.field)"  *ngIf="col.searchable && col.type==='string'" pInputText type="text">
-          <input  (input)="lazyLoadFilterData($event, col.field)" *ngIf="col.searchable && col.type==='number'" pInputText type="number">
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns">
+            <input  (input)="lazyLoadFilterData($event, col.field)"  *ngIf="col.searchable && col.type==='string'" pInputText type="text">
+            <input  (input)="lazyLoadFilterData($event, col.field)" *ngIf="col.searchable && col.type==='number'" pInputText type="number">
 
-      </tr>
+        </tr>
+      </div>
     </ng-template>
 
     <ng-template pTemplate="body" let-state let-columns="columns">
-      <tr>
-        <td *ngFor="let col of columns">
-          {{state[col.field]}}
-        </td>
-      </tr>
+      <div class = "dynamicgrid">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{state[col.field]}}
+          </td>
+        </tr>
+      </div>
     </ng-template>
+    <!--ng-template pTemplate="body" let-state let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns"><div class = "dynamicgrid"> {{state[col.field]}}</div>
+
+          </td>
+        </tr>
+
+    </ng-template-->
+
   </p-table>
 </div>
 

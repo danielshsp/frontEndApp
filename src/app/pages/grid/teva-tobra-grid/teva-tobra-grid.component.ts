@@ -3,7 +3,7 @@ import {PagingTevaService} from '../../../@core/services/customer/teva/paging-te
 import { take} from 'rxjs/operators';
 import {PageState, State} from '../../../@core/dto/customer/teva/state';
 import {LazyLoadEvent} from 'primeng/api';
-import {Table} from 'primeng/table';
+
 
 @Component({
   selector: 'app-teva-tobra-grid',
@@ -15,6 +15,7 @@ export class TevaTobraGridComponent implements OnInit {
   public stateList: State[] = [];
   public cols: any[];
   private oldStateList: State[] = [];
+  public batchFilter = '';
 
   settings = {
     globalFilter: true,
@@ -37,28 +38,52 @@ export class TevaTobraGridComponent implements OnInit {
     }
   }
 
+  loadPageByBatchId(){
+    if (this.batchFilter.length > 0) {
+        this.pagingTevaService.findAll(`?page=0&size=10&batchId=${this.batchFilter}`).pipe(take(1)).subscribe((res: PageState) => {
+          this.totalRecords = res.totalPages;
+          this.stateList = res.content;
+        });
+    }else {
+      this.pagingTevaService.findAll('?page=0&size=10').pipe(take(1)).subscribe((res: PageState) => {
+        this.totalRecords = res.totalPages;
+        this.stateList = res.content;
+      });
+    }
+  }
+
   ngOnInit() {
     this.cols = [
-      { field: 'id', header: 'Id', sortable: true, searchable: true, type: 'string' },
-      { field: 'batchId', header: 'Batch', sortable: true, searchable: true, type: 'string'  },
+      { field: 'id', header: 'Id', sortable: false, searchable: true, type: 'string' },
+      { field: 'batchId', header: 'Batch', sortable: false, searchable: true, type: 'string'  },
       { field: 'batchStartDate', header: 'BatchStartDate', sortable: true, searchable: true, type: 'string' },
-      { field: 'fermenterName', header: 'FermenterName', sortable: true, searchable: true, type: 'string' },
+      { field: 'fermenterName', header: 'FermenterName', sortable: false, searchable: true, type: 'string' },
       { field: 'batchAgeInMin', header: 'BatchAgeInMin', sortable: true, searchable: true, type: 'number' },
-      { field: 'batchSerialNumber', header: 'BatchSerialNumber', sortable: true, searchable: true, type: 'number' },
+      { field: 'batchSerialNumber', header: 'BatchSerialNumber', sortable: false, searchable: true, type: 'number' },
     ];
 
-    this.pagingTevaService.findAll(this.buildUrl(0, 10)).pipe(take(1)).subscribe((res: PageState) => {
+    this.pagingTevaService.findAll('?page=0&size=10').pipe(take(1)).subscribe((res: PageState) => {
       this.totalRecords = res.totalPages;
       this.stateList = res.content;
     });
   }
 
-  buildUrl(pageNumber: any, pageSize: any ) {
-      return `?page=${pageNumber}&size=${pageSize}`;
+  buildUrl(event: LazyLoadEvent ) {
+    const pageNumber = event.first;
+    const pageSize = event.rows;
+    const sortField = event.sortField;
+    if (sortField && event.sortOrder === -1 ) {
+      return `?page=${pageNumber}&size=${pageSize}&sortField=${sortField}&order=desc&batchId=${this.batchFilter}`;
+    }else if (sortField) {
+      return `?page=${pageNumber}&size=${pageSize}&sortField=${sortField}&order=asc&batchId=${this.batchFilter}`;
+    }
+    return `?page=${pageNumber}&size=${pageSize}&batchId=${this.batchFilter}`;
   }
 
   loadPage(event: LazyLoadEvent) {
-    this.pagingTevaService.findAll(this.buildUrl(event.first, event.rows)).pipe(take(1)).subscribe((res: PageState) => {
+    console.log(event.sortField);
+    console.log(event.sortOrder);
+    this.pagingTevaService.findAll(this.buildUrl(event)).pipe(take(1)).subscribe((res: PageState) => {
       this.totalRecords = res.totalPages;
       this.stateList = res.content;
       this.oldStateList = res.content;
