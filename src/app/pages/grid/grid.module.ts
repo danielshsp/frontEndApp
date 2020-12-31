@@ -13,11 +13,13 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-import {SortableColumn, TableModule} from 'primeng/table';
-import {CalendarModule} from 'primeng/calendar';
-import {InputTextModule} from 'primeng/inputtext';
-import {ButtonModule} from 'primeng/button';
+import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -28,15 +30,23 @@ import {MatCardModule} from '@angular/material/card';
     AdminComponent,
     UserComponent
   ],
-    imports: [
-        CommonModule,
-        GridRoutingModule,
-        FormsModule,
-        TableModule,
-        ButtonModule,
-        CalendarModule,
-        InputTextModule,
-        MatCardModule,
-    ]
+  imports: [
+    CommonModule,
+    GridRoutingModule,
+    FormsModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatIconModule
+  ]
 })
 export class GridModule { }
+

@@ -1,7 +1,5 @@
 @import '../../../sharded/component/footer/footer.component';
-@import '../../../pages/grid/teva-tobra-grid/teva-tobra-grid.component';
 
 @mixin component-themes($theme) {
   @include footer-theme($theme);
-  @include grid-theme($theme);
 }

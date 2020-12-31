@@ -1,4 +1,4 @@
-/*import {CollectionViewer, DataSource} from '@angular/cdk/collections';
+import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {PagingTevaService} from '../services/customer/teva/paging-teva.service';
 import {PageState, State} from '../dto/customer/teva/state';
@@ -23,23 +23,31 @@ export class StateDataSource implements DataSource<State> {
     this.countSubject.complete();
   }
 
-  loadPageState(pageNumber = 0, pageSize = 10) {
-    const generetUrl = this.buildUrl(pageNumber, pageSize);
+  loadPageState(pageNumber = 0, pageSize = 10, sortfield = '', sortDirection = '', batchId = '' ) {
+    const generetUrl = this.buildUrl(pageNumber, pageSize, sortfield, sortDirection, batchId );
     this.loadingSubject.next(true);
     this.pagingTevaService.findAll(generetUrl)
       .pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
       )
-      .subscribe((result: PageState) => {
+      .subscribe((result: any | PageState) => {
           this.stateSubject.next(result.content);
-          this.countSubject.next(result.totalElements);
+          this.countSubject.next(result.totalPages);
         }
       );
   }
 
-  buildUrl(pageNumber: number, pageSize: number ) {
+  buildUrl(pageNumber: number, pageSize: number, sortField: string , sortDirection: string, batchId: string) {
+    if (batchId.length > 0 && batchId !== ''){
+      return `?page=${pageNumber}&size=${pageSize}&sortField=${sortField}&order=${sortDirection}&batchId=${batchId}`;
+    }
+    else if (sortDirection.length < 2) {
       return `?page=${pageNumber}&size=${pageSize}`;
+    }else if (sortField.length > 3 && sortDirection.length > 2 ){
+      return `?page=${pageNumber}&size=${pageSize}&sortField=${sortField}&order=${sortDirection}`;
+    }
+    return `?page=${pageNumber}&size=${pageSize}`;
   }
 }
-*/
+

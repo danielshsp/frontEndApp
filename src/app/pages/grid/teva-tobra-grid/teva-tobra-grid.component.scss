@@ -1,7 +1,6 @@
-@import '~@angular/material/theming';
-
 table {
   width: 100%;
+  margin-top: 10px;
 }
 
 
@@ -11,17 +10,6 @@ h4 {
   text-align: center;
 }
 
-
-@mixin grid-theme($theme) {
-  $accent: map-get($theme, accent);
-  $background: map-get($theme, background);
-  $background-color: mat-color($background,card);
-
-
-  .dynamicgrid {
-    @include mat-elevation(2);
-    background-color: mat-color($accent);
-    border: 1rem solid $background-color;
-  }
+.search, .registration, .property {
+  margin-right: 8px;
 }
-
