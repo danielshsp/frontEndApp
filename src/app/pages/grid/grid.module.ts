@@ -20,6 +20,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {MatIconModule} from '@angular/material/icon';
     FlexLayoutModule,
     MatSelectModule,
     MatButtonToggleModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ]
 })
 export class GridModule { }

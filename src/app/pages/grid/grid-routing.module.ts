@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {TevaTobraGridComponent} from './teva-tobra-grid/teva-tobra-grid.component';
 import {RoleGuardService} from '../auth/services/role-guard.service';
 import {EppenTobraGridComponent} from './eppen-tobra-grid/eppen-tobra-grid.component';
+import {UserComponent} from './users/user/user.component';
+import {AdminComponent} from './users/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path: 'eppen',
     component: EppenTobraGridComponent,
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
   },
 
 ];

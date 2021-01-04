@@ -1,1 +1,68 @@
-<p>user works!</p>
+<div class="text">
+  <h4>User Records</h4>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-form-field class="search">
+    <mat-icon matPrefix>search</mat-icon>
+    <input name="search..." matInput placeholder="Free search..." (keyup)="applyFilter($event.target)" >
+  </mat-form-field>
+</div>
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Id Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header > username </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> firstname </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="enabled">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> enabled </th>
+      <td mat-cell *matCellDef="let element"> {{element.enabled}} </td>
+    </ng-container>
+
+    <!--company-->
+    <ng-container matColumnDef="company.name">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> company-name </th>
+      <td mat-cell *matCellDef="let element"> {{element.company.companyName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="company.address">
+      <th mat-header-cell *matHeaderCellDef> address </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.company.address.address"> {{element.company.address.address.slice(0,18)}} </td>
+    </ng-container>
+    <ng-container matColumnDef="company.country">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> country </th>
+      <td mat-cell *matCellDef="let element"> {{element.company.address.country}} </td>
+    </ng-container>
+    <ng-container matColumnDef="company.city">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> city </th>
+      <td mat-cell *matCellDef="let element"> {{element.company.address.city}} </td>
+    </ng-container>
+    <ng-container matColumnDef="company.phone">
+      <th mat-header-cell *matHeaderCellDef> phone </th>
+      <td mat-cell *matCellDef="let element"> {{element.company.address.phone}} </td>
+    </ng-container>
+    <ng-container matColumnDef="company.product">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> product </th>
+      <td mat-cell *matCellDef="let element"> {{element.company.products}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 15, 25]" [pageSize]="10"></mat-paginator>
+</div>
