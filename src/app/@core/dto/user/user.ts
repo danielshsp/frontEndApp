@@ -1,12 +1,14 @@
 export class User {
   firstname: string;
+  lastname: string;
   username: string;
   email: string;
   enabled: boolean;
   role: string[];
   company: Company;
-  constructor(firstname: string, username: string, email: string, enabled: boolean, company: Company, role: string[]) {
+  constructor(firstname: string, lastname: string, username: string, email: string, enabled: boolean, company: Company, role: string[]) {
     this.firstname = firstname;
+    this.lastname = lastname;
     this.username = username;
     this.email = email;
     this.company = company;
@@ -16,9 +18,9 @@ export class User {
 }
 
 export class Company {
-  companyName: string;
+  name: string;
   address: Address;
-  products: string[];
+  product: string[];
   constructor(){
   }
 }

@@ -26,7 +26,7 @@ export class AdminComponent implements OnInit, AfterViewInit, OnDestroy {
       this.dataSource.sort = this.sort;
     });
   }
-  displayedColumns: string[] = ['username', 'firstname', 'email', 'enabled', 'company.name', 'company.address', 'company.country', 'company.city', 'company.phone', 'company.product'];
+  displayedColumns: string[] = ['username', 'firstname', 'lastname', 'email', 'enabled', 'company.name', 'company.address', 'company.country', 'company.city', 'company.phone', 'company.product'];
 
   ngOnInit(): void {
   }

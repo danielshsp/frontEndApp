@@ -28,7 +28,7 @@ export class TevaPieComponent implements OnInit {
         text: null
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}</b>'
       },
       accessibility: {
         point: {
@@ -41,7 +41,7 @@ export class TevaPieComponent implements OnInit {
           cursor: 'pointer',
           dataLabels: {
             enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            format: '<b>{point.name}</b>: {point.percentage:.1f}'
           }
         }
       },

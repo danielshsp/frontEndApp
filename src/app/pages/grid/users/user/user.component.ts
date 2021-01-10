@@ -17,7 +17,7 @@ export class UserComponent implements OnInit, AfterViewInit, OnDestroy  {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<User>;
   subscription: Subscription;
-  displayedColumns: string[] = ['username', 'firstname', 'email', 'enabled', 'company.name', 'company.address', 'company.country', 'company.city', 'company.phone', 'company.product'];
+  displayedColumns: string[] = ['username', 'firstname', 'lastname', 'email', 'enabled', 'company.name', 'company.address', 'company.country', 'company.city', 'company.phone', 'company.product'];
 
   constructor(private userService: UserService) {
   }

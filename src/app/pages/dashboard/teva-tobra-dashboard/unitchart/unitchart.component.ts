@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
+import {StateChart} from '../../../../@core/dto/customer/teva/state';
 
 
 @Component({
@@ -11,6 +12,7 @@ import HC_exporting from 'highcharts/modules/exporting';
 
 export class TevaUnitchartComponent implements OnInit {
 
+  @Input() data: StateChart;
   @Input() label: string = String();
   chartOptions: any = {} ;
   Highcharts = Highcharts;
@@ -32,13 +34,16 @@ export class TevaUnitchartComponent implements OnInit {
       },
       xAxis: {
         categories: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
+          'age0',
+          'age2',
+          'age3',
+          'age4',
+          'age5',
+          'age6',
+          'age7',
+          'age8',
+          'age9',
+          'age10'
         ]
       },
       tooltip: {
@@ -53,11 +58,11 @@ export class TevaUnitchartComponent implements OnInit {
       },
       series: [{
         name: 'Co2',
-        data: [3, 4, 3, 5, 4, 10, 12]
+        data: this.data.co2
       }, {
         color: '#c1bcc2',
         name: 'PH',
-        data: [1, 3, 4, 3, 3, 5, 4]
+        data: this.data.ph
       }]
     };
 
