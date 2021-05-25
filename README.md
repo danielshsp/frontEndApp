@@ -41,5 +41,6 @@ https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-
 https://www.youtube.com/watch?v=_dHcPlXJIvs&t=48s - router guard
 https://medium.com/grensesnittet/dynamic-themes-in-angular-material-b6dc0c88dfd7 - dynamic theme
 https://www.youtube.com/watch?v=UrfhqE7I-3o - interceptor
+https://stackoverflow.com/questions/46123854/expandable-table-rows-in-angular-4-with-angular-material - expanded row table
 
 
