@@ -26,21 +26,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-
+## tsconfig 
+    for shortcut path
+## ng command
+    
+    ng g c ./path/componentname
+    ng g s ./path/servicename
+    ng g m ./path/modulename
 project examples:
-https://github.com/akveo/nebular/
-https://www.youtube.com/watch?v=FP7Hs8lTy1k - recommended
+
+    https://github.com/akveo/nebular/
+    https://www.youtube.com/watch?v=FP7Hs8lTy1k - recommended
 
 guides:
-https://primefaces.org/primeng/showcase/#/setup
-https://www.highcharts.com/demo
-https://www.angularjswiki.com/de/angular/angular-material-icons-list-mat-icon-list/
-https://www.youtube.com/watch?v=JJoBUdMJf1I
-https://medium.com/echohub/angular-role-based-routing-access-with-angular-guard-dbecaf6cd685 - router guard role
-https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-bf7a4ca13ae3 - router guard role
-https://www.youtube.com/watch?v=_dHcPlXJIvs&t=48s - router guard
-https://medium.com/grensesnittet/dynamic-themes-in-angular-material-b6dc0c88dfd7 - dynamic theme
-https://www.youtube.com/watch?v=UrfhqE7I-3o - interceptor
-https://stackoverflow.com/questions/46123854/expandable-table-rows-in-angular-4-with-angular-material - expanded row table
+
+    https://primefaces.org/primeng/showcase/#/setup
+    https://www.highcharts.com/demo
+    https://www.angularjswiki.com/de/angular/angular-material-icons-list-mat-icon-list/
+    https://www.youtube.com/watch?v=JJoBUdMJf1I - build in a angular project in spring boot app by maven plugin
+    https://medium.com/echohub/angular-role-based-routing-access-with-angular-guard-dbecaf6cd685 - router guard role
+    https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-bf7a4ca13ae3 - router guard role
+    https://www.youtube.com/watch?v=_dHcPlXJIvs&t=48s - router guard
+    https://medium.com/grensesnittet/dynamic-themes-in-angular-material-b6dc0c88dfd7 - dynamic theme
+    https://www.youtube.com/watch?v=UrfhqE7I-3o - interceptor
+    https://stackoverflow.com/questions/46123854/expandable-table-rows-in-angular-4-with-angular-material - expanded row table
 
 
